@@ -1,7 +1,7 @@
-import React from 'react';
+import { type ReactNode } from 'react';
 
-const Main = () => {
-	return <>Main</>;
+const Main = ({ children }: { children: ReactNode }) => {
+	return <main className="p-4">{children}</main>;
 };
 
 export default Main;
