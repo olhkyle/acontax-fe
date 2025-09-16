@@ -5,7 +5,6 @@ const Layout = () => {
 		<div className="flex min-h-screen flex-col">
 			<div className="flex flex-1">
 				<Aside />
-
 				<Main>
 					<Nav />
 				</Main>
