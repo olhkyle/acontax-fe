@@ -1,17 +1,41 @@
+import { Link } from 'react-router';
+import route from '@/constant/route';
+import { FilePlus, FileText, LayoutList, Search } from 'lucide-react';
+
+const links = [
+	{ title: '문서 작성하기', to: route.WRITE, icon: <FilePlus size={18} className="text-gray-900" /> },
+	{ title: '문서 발행목록', to: route.STATEMENTS, icon: <LayoutList size={18} /> },
+	{ title: '엑셀 가져오기', to: route.GET_DATA_FROM_EXCEL, icon: <FileText size={18} /> },
+] as const;
+
+// TODO: find out current path(url)
+
 const Aside = () => {
 	return (
 		<div className="relative">
-			<aside className="bg-muted border-muted fixed left-0 hidden h-full w-14 flex-col overflow-y-auto overflow-x-hidden border-r md:sticky md:flex lg:w-56 lg:px-3 max-h-screen">
-				<div className="flex h-full flex-col justify-between py-3 lg:pt-4">
-					<header>
-						<div>Kyle Kwon</div>
+			<aside className="fixed left-0 hidden h-full w-14 flex-col max-h-screen overflow-y-auto overflow-x-hidden bg-muted border-muted border-r md:sticky md:flex lg:w-56 lg:p-3">
+				<div className="flex h-full flex-col justify-between">
+					<header className="flex justify-between items-center gap-2">
+						<button className="flex items-center gap-2 py-1.5 px-2">
+							<div className="flex justify-center items-center w-4 h-4 rounded-[9999px] bg-gray-900">
+								{/* <img src="#" alt="not yet" className="block w-full h-full" /> */}
+							</div>
+							<div className="font-bold">Kyle Kwon</div>
+						</button>
+						<button type="button">
+							<Search size={18} className="text-gray-800" />
+						</button>
 					</header>
-					<nav className="mt-2 flex-1 md:px-2 lg:mt-4 lg:px-0">
-						<ul>
-							<li>문서 작성하기</li>
-							<li>문서 발행목록</li>
-							<li>엑셀 가져오기</li>
-						</ul>
+					<nav className="flex flex-col flex-1 gap-2 mt-2 md:px-2 lg:mt-4 lg:px-0">
+						{links.map(({ title, to, icon }) => (
+							<Link
+								to={to}
+								key={to}
+								className="flex items-center gap-2 py-1.5 px-2 text-gray-800 font-medium rounded-md hover:bg-gray-200 transition-colors">
+								{icon}
+								<span>{title}</span>
+							</Link>
+						))}
 					</nav>
 					<button type="button">테스트</button>
 				</div>
