@@ -1,5 +1,6 @@
 const route = {
 	HOME: '/',
+	AUTH: '/auth',
 	LOGIN: '/auth/login',
 	SIGNUP: '/auth/signup',
 	FORGOT_PASSWORD: '/auth/forgot-password',
