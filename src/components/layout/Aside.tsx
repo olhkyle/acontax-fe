@@ -3,9 +3,9 @@ import route from '@/constant/route';
 import { FilePlus, FileText, LayoutList, Search, Settings } from 'lucide-react';
 
 const links = [
-	{ title: '문서 작성하기', to: route.WRITE, icon: <FilePlus size={18} className="text-gray-900" /> },
-	{ title: '문서 발행목록', to: route.STATEMENTS, icon: <LayoutList size={18} /> },
-	{ title: '엑셀 가져오기', to: route.GET_DATA_FROM_EXCEL, icon: <FileText size={18} /> },
+	{ title: '문서 작성하기', to: route.SERVICE.WRITE, icon: <FilePlus size={18} className="text-gray-900" /> },
+	{ title: '문서 발행목록', to: route.SERVICE.STATEMENTS, icon: <LayoutList size={18} /> },
+	{ title: '엑셀 가져오기', to: route.SERVICE.GET_DATA_FROM_EXCEL, icon: <FileText size={18} /> },
 ] as const;
 
 // TODO: find out current path(url)
@@ -45,7 +45,7 @@ const Aside = () => {
 				</div>
 				<div>
 					<Link
-						to={route.SETTINGS_MYACCOUNT_PROFILE}
+						to={route.SERVICE.SETTINGS.MYACCOUNT_PROFILE}
 						className="flex justify-center items-center gap-0 py-1.5 px-2 text-gray-800 font-medium rounded-md hover:bg-gray-200 transition-colors lg:gap-2 lg:justify-start">
 						<Settings size={18} className="text-gray-900" />
 						<span className="hidden lg:inline">Settings</span>

@@ -3,29 +3,37 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { RouterProvider, createBrowserRouter } from 'react-router';
 import { Layout, AuthLayout } from './components';
 import route from './constant/route';
-import { Login, Signup } from './pages';
+import { Home, Login, Signup, NotFound, Landing } from './pages';
 
 const queryClient = new QueryClient({});
 
 const router = createBrowserRouter([
 	{
-		path: route.HOME,
+		path: route.SERVICE.ROOT,
 		Component: Layout,
-		children: [],
+		children: [{ path: route.SERVICE.ROOT, Component: Home }],
 	},
 	{
-		path: route.AUTH,
+		path: route.AUTH.ROOT,
 		Component: AuthLayout,
 		children: [
 			{
-				path: route.LOGIN,
+				path: route.AUTH.LOGIN,
 				Component: Login,
 			},
 			{
-				path: route.SIGNUP,
+				path: route.AUTH.SIGNUP,
 				Component: Signup,
 			},
 		],
+	},
+	{
+		path: route.HOME,
+		Component: Landing,
+	},
+	{
+		path: route.SERVICE.NOT_FOUND,
+		Component: NotFound,
 	},
 ]);
 
